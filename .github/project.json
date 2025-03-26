@@ -1,0 +1,142 @@
+{
+  "name": "Complete Bookstore API Implementation",
+  "description": "Bookstore API with all the necessary endpoints for a complete book management system",
+  "columns": [
+    { "name": "📥 Backlog" },
+    { "name": "📋 Spec Ready" },
+    { "name": "👨‍💻 In Development" },
+    { "name": "🔍 In Review" },
+    { "name": "✅ done" }
+  ],
+  "groups": [
+    {
+      "name": "🔐 Authentication",
+      "tasks": [
+        {
+          "title": "CORE: User Auth Endpoints",
+          "body": "✅ POST /api/user/register\n✅ POST /api/user/login\n✅ POST /api/user/logout\n✅ GET /api/user/verify\n✅ POST /api/user/verify/2fa\n✅ POST /api/user/verify/account/{token}\n✅ POST /api/user/change-password\n✅ POST /api/user/forgot-password\n✅ POST /api/user/reset-password/{token}\n✅ POST /api/user/toggle/2fa",
+          "labels": ["P0", "security"]
+        },
+        {
+          "title": "SOCIAL: OAuth2 Endpoints",
+          "body": "✅ GET /api/auth/google\n✅ GET /api/auth/facebook\n✅ GET /api/auth/google/callback\n✅ GET /api/auth/facebook/callback\n✅ GET /api/auth/social/faied",
+          "labels": ["P1", "oauth"]
+        }
+      ]
+    },
+    {
+      "name": "📚 Book Management",
+      "tasks": [
+        {
+          "title": "CRUD Operations",
+          "body": "✅ POST /api/book/create\n✅ GET /api/book/get-all\n✅ GET /api/book/find/{id}\n✅ DELETE /api/book/delete/{id}\n✅ PUT /api/book/update-book/{id}",
+          "labels": ["P0", "core"]
+        },
+        {
+          "title": "Audio Book Handling",
+          "body": "✅ POST /api/book/upload-audio/{id}\n✅ GET /api/book/audio/{id}\n✅ GET /api/book/audio-for-logged-author/{id}\n✅ GET /api/book/audio\n✅ DELETE /api/book/delete-audio/{id}\n✅ GET /api/book/audio-for-who-paid/{id}",
+          "labels": ["P1", "media"]
+        },
+        {
+          "title": "Advanced Book Queries",
+          "body": "✅ GET /api/book/between\n✅ GET /api/book/today\n✅ GET /api/book/last7days\n✅ GET /api/book/by-status/{status}\n✅ GET /api/book/most-sold\n✅ GET /api/book/by-authors-id/{id}\n✅ GET /api/book/approved-by-author-id/{id}\n✅ GET /api/book/most-reviewed\n✅ GET /api/book/top-rated\n✅ GET /api/book/recommendations",
+          "labels": ["P1", "search"]
+        }
+      ]
+    },
+    {
+      "name": "💰 Orders",
+      "tasks": [
+        {
+          "title": "Order Processing",
+          "body": "✅ POST /api/order/purchase/{id}\n✅ GET /api/order/get-all\n✅ GET /api/order/by-id/{id}\n✅ PUT /api/order/update-status/{id}\n✅ DELETE /api/order/delete/{id}\n✅ DELETE /api/order/delete-unapproved/{id}",
+          "labels": ["P0", "commerce"]
+        },
+        {
+          "title": "Order Analytics",
+          "body": "✅ GET /api/order/logged-user\n✅ GET /api/order/approved-logged-user\n✅ GET /api/order/for-book/{id}\n✅ GET /api/order/last7days-approved\n✅ GET /api/order/approved-byuser/{id}\n✅ GET /api/order/byuser/{id}\n✅ GET /api/order/bystatus/{status}\n✅ GET /api/order/between\n✅ GET /api/order/approved-between\n✅ GET /api/order/today\n✅ GET /api/order/ordernumber/{orderNumber}\n✅ GET /api/order/last7days",
+          "labels": ["P1", "analytics"]
+        }
+      ]
+    },
+    {
+      "name": "👥 User Systems",
+      "tasks": [
+        {
+          "title": "User Profiles",
+          "body": "✅ GET /api/user/my-profile\n✅ POST /api/manage-user/register-byreferal/{token}\n✅ PUT /api/manage-user/update-my-account\n✅ GET /api/manage-user/get-all-users\n✅ GET /api/manage-user/my-referal\n✅ DELETE /api/manage-user/delete-my-account\n✅ GET /api/manage-user/get-user/{id}",
+          "labels": ["P1", "profile"]
+        },
+        {
+          "title": "Admin Controls",
+          "body": "✅ GET /api/manage-user/filter-authors\n✅ GET /api/manage-user/filter-allusers\n✅ PUT /api/manage-user/toggle/isactive/{id}\n✅ GET /api/manage-user/not-active-users\n✅ GET /api/manage-user/verified-users\n✅ PUT /api/manage-user/change-role/{id}\n✅ GET /api/manage-user/provider/{provider}\n✅ POST /api/manage-user/send-email/{id}",
+          "labels": ["P2", "admin"]
+        }
+      ]
+    },
+    {
+      "name": "💳 Financial",
+      "tasks": [
+        {
+          "title": "Bank Accounts",
+          "body": "✅ POST /api/account/create\n✅ GET /api/account/get-all\n✅ GET /api/account/by/{id}\n✅ PUT /api/account/update/{id}\n✅ DELETE /api/account/delete/{id}",
+          "labels": ["P1", "banking"]
+        },
+        {
+          "title": "Subscriptions",
+          "body": "✅ POST /api/subscription/create\n✅ PUT /api/subscription/update/{id}\n✅ GET /api/subscription/get-all\n✅ DELETE /api/subscription/delete/{id}\n✅ GET /api/subscription/my/subscription\n✅ GET /api/subscription/by-id/{id}\n✅ POST /api/subscription-order/purchase\n✅ PUT /api/subscription-order/update-status/{id}\n✅ GET /api/subscription-order/by/{id}",
+          "labels": ["P2", "billing"]
+        }
+      ]
+    },
+    {
+      "name": "💬 Social",
+      "tasks": [
+        {
+          "title": "Following System",
+          "body": "✅ POST /api/following/follow\n✅ POST /api/following/unfollow\n✅ GET /api/following/followers/{id}\n✅ GET /api/following/following/{id}\n✅ GET /api/following/myfollowers\n✅ GET /api/following/amfollowing",
+          "labels": ["P2", "social"]
+        },
+        {
+          "title": "Reviews & Comms",
+          "body": "✅ POST /api/review/create/{id}\n✅ PUT /api/review/update/{id}\n✅ GET /api/review/get-all\n✅ DELETE /api/review/delete/{id}\n✅ GET /api/review/by-userid/{id}\n✅ GET /api/review/by-bookid/{id}\n✅ GET /api/review/by/{id}\n✅ POST /api/comm/create\n✅ PUT /api/comm/update/{id}\n✅ DELETE /api/comm/delete/{id}",
+          "labels": ["P1", "content"]
+        }
+      ]
+    },
+    {
+      "name": "📊 Analytics",
+      "tasks": [
+        {
+          "title": "Sales Reports",
+          "body": "✅ GET /api/sales/books/reports/bybookid/{id}\n✅ GET /api/sales/books/reports/logged-author\n✅ GET /api/sales/books/reports/total-byauthorid/{id}\n✅ GET /api/sales/books/reports/top-books\n✅ GET /api/sales/books/reports/top-sellers\n✅ GET /api/sales/books/reports/top-buyer\n✅ GET /api/sales/books/reports/total\n✅ GET /api/sales/books/reports/last7days\n✅ GET /api/sales/books/reports/average\n✅ GET /api/sales/books/reports/last-month\n✅ GET /api/sales/books/reports/last-year\n✅ GET /api/sales/books/reports/this-month\n✅ GET /api/sales/books/reports/this-year\n✅ GET /api/sales/books/reports/between\n✅ GET /api/sold-report/between\n✅ GET /api/sold-report/get-totals\n✅ GET /api/sold-report/get-all",
+          "labels": ["P1", "analytics"]
+        }
+      ]
+    }
+  ],
+  "automation": {
+    "rules": [
+      {
+        "name": "Start development when assigned",
+        "conditions": [
+          { "assigned": true }
+        ],
+        "actions": [
+          { "set_column": "👨‍💻 In Development" },
+          { "add_label": "active" }
+        ]
+      },
+      {
+        "name": "Move to review when PR created",
+        "conditions": [
+          { "linked_pull_request": "any" }
+        ],
+        "actions": [
+          { "set_column": "🔍 Code Review" },
+          { "add_label": "under-review" }
+        ]
+      }
+    ]
+  }
+}
